@@ -2,6 +2,11 @@ from lib import*
 from matplotlib import pyplot as plt
 
 def plotCSV(T, VA, VB):
+    '''
+    Fournir les instants dans T, les tensions des deux canaux de VA et VB.
+    Plot le graphe des tensions en fonction du temps.
+    '''
+    
     fig = plt.figure()
     ax = fig.subplots()
 
@@ -17,4 +22,4 @@ def plotCSV(T, VA, VB):
     plt.grid()
     plt.show()
  
-plotCSV(*readPicoCSV("test.csv"))
+plotCSV(*readPicoCSV("test1.csv"))
