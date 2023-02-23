@@ -17,4 +17,4 @@ def plotCSV(T, VA, VB):
     plt.grid()
     plt.show()
  
-plotCSV(*readPicoCSV("Labo_S3//XP2//R1_66kohm//R1_66kohm_01.csv"))
+plotCSV(*readPicoCSV("test.csv"))
