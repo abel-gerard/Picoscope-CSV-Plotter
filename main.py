@@ -1,9 +1,9 @@
 from lib import*
 from matplotlib import pyplot as plt
 
-def plotCSV(T, VA, VB, boundary=None):
+def plotCSV(T, VS, boundary=None):
     '''
-    Fournir les instants dans T, les tensions des deux canaux de VA et VB.
+    Fournir les instants dans T, les tensions des canaux.
     Plot le graphe des tensions en fonction du temps.
     '''
     
@@ -18,8 +18,10 @@ def plotCSV(T, VA, VB, boundary=None):
         boundary = (T[0], T[-1])
     plt.xlim(boundary)
 
-    ax.plot(T, VA, '-b', label="Channel A")
-    if any(VB): ax.plot(T, VB, '-r', label="Channel B")
+    lines = ('-b', '-r', '-g', '-y')
+    for j, channel in enumerate(('A', 'B', 'C', 'D')):
+        if any(VS[:, j]):
+            ax.plot(T, VS[:, j], lines[j], label=f"Channel {channel}")
 
     plt.legend(loc="lower left")
     
