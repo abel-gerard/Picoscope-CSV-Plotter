@@ -3,8 +3,11 @@ import numpy as np
 
 def readPicoCSV(pathToCSV, language="EN"):
     '''
-    Fournir le path du csv à ouvrir et la langue du csv ("EN" ou "FR") par défaut à "EN" .
-    Retourne les instants et les tensions des canaux.
+    Fournir : 
+        -le path du csv à ouvrir
+        -[FACULTATIVEMENT] la langue du csv ("EN" ou "FR") par défaut à "EN" .
+    
+    Retourne les "instants" et les tensions des canaux.
     '''
     
     languageToKeywords = {

@@ -3,7 +3,11 @@ from matplotlib import pyplot as plt
 
 def plotCSV(T, VS, boundary=None):
     '''
-    Fournir les instants dans T, les tensions des canaux.
+    Fournir : 
+        -les "instants"
+        -les tensions des canaux
+        -[FACULTATIVEMENT] l'instant initial et final qui délimitent le plot, forme : (t_initial, t_final)
+    
     Plot le graphe des tensions en fonction du temps.
     '''
     
@@ -21,11 +25,14 @@ def plotCSV(T, VS, boundary=None):
     lines = ('-b', '-r', '-g', '-y')
     for j, channel in enumerate(('A', 'B', 'C', 'D')):
         if any(VS[:, j]):
-            ax.plot(T, VS[:, j], lines[j], label=f"Channel {channel}")
+            userInput = input(f"Que représente le canal {channel} ? ")
+            if not userInput: userInput = f"Channel {channel}" 
+            
+            ax.plot(T, VS[:, j], lines[j], label=userInput)
 
     plt.legend(loc="lower left")
     
     plt.grid()
     plt.show()
  
-plotCSV(*readPicoCSV("test.csv"))
+plotCSV(*readPicoCSV("test.csv", "FR"))
